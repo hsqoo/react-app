@@ -4,4 +4,11 @@
     height: 600px;
     justify-content: center;
     align-items: center;
+    .row {
+        margin: 20px 0;
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+    }
 }
