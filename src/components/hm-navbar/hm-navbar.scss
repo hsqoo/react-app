@@ -1,0 +1,43 @@
+
+.hm-navbar {
+    .m-top {
+        position: relative;
+        z-index: 1000;
+        height: 70px;
+        box-sizing: border-box;
+        background: #242424;
+        border-bottom: 1px solid #000;
+    }
+    .wrap {
+        width: 1100px;
+        margin: 0 auto;
+        .logo {
+            float: left;
+            width: 176px;
+            height: 69px;
+            background: url('../../assets/images/topbar.png') no-repeat;
+            background-position: 0 0 ;
+            a {
+                float: left;
+                width: 157px;
+                height: 100%;
+                padding-right: 20px;
+                text-indent: -9999px;
+            }
+        }
+        .m-nav {
+            float: left;
+            a {
+                padding: 0 19px;
+                text-align: center;
+                line-height: 70px;
+                color: #ccc;
+            }
+            li,span,a, em {
+                float: left;
+                height: 70px;
+                font-size: 14px;
+            }
+        }
+    }
+}

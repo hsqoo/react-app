@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
-const baseUrl = "http://localhost:3000";
+const baseUrl = "http://localhost:4000";
 
 function callApi (endpoint, postParam, method) {
     // let fullUrl = (endpoint.indexOf(baseUrl) === -1) ? baseUrl + endpoint : endpoint;
@@ -9,10 +9,10 @@ function callApi (endpoint, postParam, method) {
     let fullUrl = baseUrl + endpoint;
     let timeStramp = + new Date();
     let parseParams;
-    parseParams = Object.assign(postParam,{timeStramp},{cookie});
-    console.log(postParam, parseParams)
+    // parseParams = Object.assign(postParam,{timeStramp},{cookie});
 
-    parseParams = qs.stringify(postParam);
+    parseParams = qs.stringify(Object.assign(postParam,{timeStramp},{cookie}));
+    // parseParams = qs.stringify(postParam);
     return new Promise((resolve, reject) => {
         if (method === 'GET'){
             fullUrl += '?'
@@ -30,13 +30,13 @@ function callApi (endpoint, postParam, method) {
                     reject(err)
                 });
         } else {
+            console.log(method)
             axios({
-                method: method && method.toLowerCase() || 'post',
+                method: method && method.toLowerCase() || 'POST',
+                // withCredentials: true,
+                // headers: { 'content-type': 'application/json;charset=utf-8' },
                 url: fullUrl,
-                data: postParam,
-                success: ()=>{
-
-                }
+                data: parseParams,
             }).then(res=> {
                 if(res.status ==200){
                     resolve(res)
@@ -52,6 +52,11 @@ function callApi (endpoint, postParam, method) {
 
     })
 }
-
+// 登录
 export const login = (postParam) => callApi(`/login/cellphone`, postParam, 'POST');
+// 检查登录状态
 export const checkLoginStatus = (postParam) => callApi(`/login/status`, postParam, 'GET');
+// 获取我的歌单
+export const getPlayList = (postParam) => callApi(`/user/playlist`, postParam, 'GET');
+// 首页轮播图
+export const getBanner = (postParam) => callApi(`/banner`, postParam, 'GET');

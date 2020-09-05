@@ -1,5 +1,6 @@
-@import '../../assets/css/reset.css';
-
+body {
+   
+}
 .login {
     display: flex;
     width: 100%;
@@ -19,12 +20,5 @@
             display: block;
             margin: 0 auto;
         }
-    }
-}
-.slide-container {
-    width: 1100px;
-    margin: 0 auto;
-    .slick-dots {
-        bottom: 20px;
     }
 }
