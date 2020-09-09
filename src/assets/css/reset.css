@@ -96,3 +96,6 @@ button {
     height: 0;
     visibility: hidden;
 }
+.f-tdn,.f-tdn:hover {
+    text-decoration: none;
+}

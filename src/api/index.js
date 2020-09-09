@@ -60,3 +60,5 @@ export const checkLoginStatus = (postParam) => callApi(`/login/status`, postPara
 export const getPlayList = (postParam) => callApi(`/user/playlist`, postParam, 'GET');
 // 首页轮播图
 export const getBanner = (postParam) => callApi(`/banner`, postParam, 'GET');
+// 推荐歌单
+export const personalized = (postParam) => callApi(`/personalized`, postParam, 'GET');
